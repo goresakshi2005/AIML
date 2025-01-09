@@ -3,9 +3,16 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import os
 
-pipe= pickle.load(open('pipe.pkl','rb'))
-data= pickle.load(open('laptop_data.pkl','rb'))
+# Define the relative paths to the files
+pipe_path = os.path.join(os.path.dirname(__file__), 'pipe.pkl')
+data_path = os.path.join(os.path.dirname(__file__), 'laptop_data.pkl')
+
+# Load the pickle files
+pipe = pickle.load(open(pipe_path, 'rb'))
+data = pickle.load(open(data_path, 'rb'))
+
 
 st.title("Laptop Price Predictor")
 
